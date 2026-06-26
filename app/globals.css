@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ANAFCO Technologies — Design Tokens
+   Dark-first palette (wondermakers-inspired) + light mode
+   ============================================================ */
+
+:root {
+  /* Light mode */
+  --canvas: 250 250 249;     /* #FAFAF9 */
+  --surface: 255 255 255;    /* #FFFFFF */
+  --elevated: 244 244 245;   /* #F4F4F5 */
+  --border: 228 228 231;     /* #E4E4E7 */
+  --ink: 10 10 11;           /* #0A0A0B */
+  --muted: 82 82 91;         /* #52525B */
+  --faint: 113 113 122;      /* #71717A */
+  --accent: 132 204 22;      /* lime-600, readable on light */
+  --accent-ink: 12 18 4;     /* near-black text on accent */
+  --violet: 124 92 252;      /* #7C5CFC */
+}
+
+.dark {
+  /* Dark mode (default) */
+  --canvas: 10 10 11;        /* #0A0A0B */
+  --surface: 20 20 22;       /* #141416 */
+  --elevated: 28 28 31;      /* #1C1C1F */
+  --border: 39 39 42;        /* #27272A */
+  --ink: 250 250 250;        /* #FAFAFA */
+  --muted: 161 161 170;      /* #A1A1AA */
+  --faint: 113 113 122;      /* #71717A */
+  --accent: 198 242 78;      /* #C6F24E electric lime */
+  --accent-ink: 12 18 4;     /* near-black text on accent */
+  --violet: 124 92 252;      /* #7C5CFC */
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--canvas));
+  color: rgb(var(--ink));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Selection */
+::selection {
+  background: rgb(var(--accent));
+  color: rgb(var(--accent-ink));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--canvas));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--faint));
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-6 md:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted;
+  }
+
+  .eyebrow-dot::before {
+    content: "";
+    @apply h-1.5 w-1.5 rounded-full bg-accent;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-accent-ink px-6 py-3 hover:brightness-105 hover:-translate-y-0.5 shadow-[0_0_0_0_rgba(198,242,78,0)] hover:shadow-[0_8px_30px_-8px_rgba(198,242,78,0.5)];
+  }
+  .btn-ghost {
+    @apply btn border border-border bg-transparent text-ink px-6 py-3 hover:bg-elevated hover:-translate-y-0.5;
+  }
+  .btn-sm {
+    @apply px-4 py-2 text-[13px];
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-xl2 border border-border bg-surface transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.5)];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-[13px] text-muted transition-colors hover:border-accent/40 hover:text-ink;
+  }
+
+  /* Gridded background for hero/CTA */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-ink via-ink to-accent bg-clip-text text-transparent;
+  }
+}
+
+/* ============================================================
+   3D utilities (Wondermaker-style depth)
+   Tailwind 3.4 doesn't ship these — define once, use everywhere.
+   ============================================================ */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-1400 {
+    perspective: 1400px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .translate-z-0 {
+    transform: translateZ(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

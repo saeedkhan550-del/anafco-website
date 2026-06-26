@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.wondermakers.digital)",
+      "Bash(curl -s -m 30 -o /dev/null -w \"/about status:%{http_code}\\\\n\" \"http://localhost:3000/about\")",
+      "Bash(curl -s -m 30 -o /dev/null -w \"/case-studies status:%{http_code}\\\\n\" \"http://localhost:3000/case-studies\")",
+      "Bash(curl -s -m 30 -o /dev/null -w \"/case-studies/northwind status:%{http_code}\\\\n\" \"http://localhost:3000/case-studies/northwind\")",
+      "Bash(curl -s -m 30 -o /dev/null -w \"/work/northwind \\(redirect\\) status:%{http_code}\\\\n\" \"http://localhost:3000/work/northwind\")",
+      "Bash(curl -s -m 30 http://localhost:3000/about)",
+      "Bash(curl -s -m 30 http://localhost:3000/)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -m 30 -o /dev/null -w \"localhost:3000 status:%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(timeout 40 npm run dev)",
+      "Bash(npm run *)"
+    ]
+  }
+}
