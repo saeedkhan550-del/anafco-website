@@ -67,24 +67,41 @@ export const viewport = {
   themeColor: "#0A0A0B",
 };
 
-const orgJsonLd = {
+// Two graphs: WebSite drives the bold site-name label in search results;
+// Organization powers the knowledge panel / logo association.
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "ANAFCO Technologies",
-  url: SITE_URL,
-  logo: `${SITE_URL}/icon.svg`,
-  email: company.email,
-  telephone: company.phone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "2815 Coyle St Unit 176",
-    addressLocality: "Brooklyn",
-    addressRegion: "NY",
-    postalCode: "11235",
-    addressCountry: "US",
-  },
-  description:
-    "ANAFCO Technologies builds SaaS products, custom software, POS systems, ISP billing platforms, AI automation and cloud solutions for ambitious businesses.",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "ANAFCO Technologies",
+      alternateName: ["Anafco Tech", "ANAFCO"],
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "ANAFCO Technologies",
+      alternateName: "Anafco Tech",
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon`,
+      image: `${SITE_URL}/opengraph-image`,
+      email: company.email,
+      telephone: company.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2815 Coyle St Unit 176",
+        addressLocality: "Brooklyn",
+        addressRegion: "NY",
+        postalCode: "11235",
+        addressCountry: "US",
+      },
+      description:
+        "ANAFCO Technologies builds SaaS products, custom software, POS systems, ISP billing platforms, AI automation and cloud solutions for ambitious businesses.",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -93,7 +110,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ThemeProvider>
           <ContactProvider>{children}</ContactProvider>

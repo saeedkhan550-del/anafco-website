@@ -11,7 +11,14 @@
       "Bash(netstat -ano)",
       "Bash(curl -s -m 30 -o /dev/null -w \"localhost:3000 status:%{http_code}\\\\n\" http://localhost:3000/)",
       "Bash(timeout 40 npm run dev)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(nslookup -type=MX anafco.site)",
+      "Bash(nslookup -type=TXT anafco.site)",
+      "Bash(nslookup -type=TXT _amazonses.anafco.site)",
+      "Bash(nslookup -type=MX anafco.site 8.8.8.8)",
+      "Bash(nslookup -type=TXT anafco.site 8.8.8.8)",
+      "Bash(nslookup -type=CNAME autodiscover.anafco.site 8.8.8.8)",
+      "Bash(nslookup -type=NS anafco.site 8.8.8.8)"
     ]
   }
 }
