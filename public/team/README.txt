@@ -1,7 +1,7 @@
 ANAFCO — team headshots. Drop your real photos in THIS folder
 (public/team/) with these EXACT filenames (square, 400x400+ works best):
 
-  fahad-alhajri.png      → M Fahad Bader Alhajri — Founder & CEO
+  saeed-zaman-khan.png   → Saeed Zaman Khan — Founder & CEO
   bilal-ahmed.png        → Bilal Ahmed — Head of Engineering  (Pakistani)
   priya-nair.png         → Priya Nair — Lead Product Manager  (Indian)
   sarah-mitchell.png     → Sarah Mitchell — Head of Design    (USA)
