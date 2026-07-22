@@ -60,7 +60,7 @@ export default function OgImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", width: 56, height: 6, background: "#C6F24E", borderRadius: 999 }} />
           <div style={{ display: "flex", fontSize: 28, color: "#C6F24E", fontWeight: 600 }}>
-            anafco.site
+            anafcotech.com
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ function Chrome({ label, children, className = "" }) {
 /* 1) Company Website — hero landing layout */
 export function WebsiteMockup() {
   return (
-    <Chrome label="anafco.site">
+    <Chrome label="anafcotech.com">
       <div className="relative p-5">
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-32 w-56 -translate-x-1/2 rounded-full bg-accent/20 blur-3xl"
@@ -132,7 +132,7 @@ export function MobileMockup() {
 /* 3) Web App — full dashboard (also used as hero visual) */
 export function DashboardMockup({ animated = true }) {
   return (
-    <Chrome label="app.anafco.site/dashboard">
+    <Chrome label="app.anafcotech.com/dashboard">
       <div className="grid grid-cols-12 gap-3 p-4">
         <div className="col-span-3 hidden flex-col gap-2 sm:flex">
           <div className="h-6 w-full rounded-md bg-accent/15" />
@@ -184,7 +184,7 @@ export function DashboardMockup({ animated = true }) {
 /* 4) Premium Storefront — product grid + cart */
 export function StorefrontMockup() {
   return (
-    <Chrome label="shop.anafco.site">
+    <Chrome label="shop.anafcotech.com">
       <div className="p-4">
         <div className="flex items-center justify-between">
           <div className="h-3 w-16 rounded bg-ink/80" />
@@ -235,7 +235,7 @@ export function StorefrontMockup() {
 /* 5) Web3 App — wallet / on-chain dashboard */
 export function Web3Mockup() {
   return (
-    <Chrome label="app.anafco.site/vault">
+    <Chrome label="app.anafcotech.com/vault">
       <div className="relative p-4">
         <div
           className="pointer-events-none absolute right-0 top-0 h-24 w-32 rounded-full bg-violet/30 blur-3xl"
